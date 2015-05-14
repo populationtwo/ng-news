@@ -17,7 +17,8 @@ var app = angular
 		'ngResource',
 		'ngRoute',
 		'ngSanitize',
-		'ngTouch'
+		'ngTouch',
+		'firebase'
 	] )
 	.config( function ($routeProvider) {
 		$routeProvider
@@ -28,6 +29,7 @@ var app = angular
 			.otherwise( {
 				redirectTo: '/'
 			} );
-	} );
+	} )
+	.constant('FIREBASE_URL', 'https:https://blinding-inferno-9424.firebaseio.com/');
 
 
