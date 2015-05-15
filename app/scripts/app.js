@@ -22,27 +22,36 @@ var app = angular
 	] )
 	.config( function ($routeProvider) {
 		$routeProvider
-			.when('/',{
+			.when( '/', {
 				templateUrl: 'views/posts.html',
-				controller: 'PostsCtrl'
-			})
-			.when('/posts/:postId', {
+				controller : 'PostsCtrl'
+			} )
+			.when( '/posts/:postId', {
 				templateUrl: 'views/showpost.html',
-				controller: 'PostViewCtrl'
-			})
-			.when('/register', {
+				controller : 'PostViewCtrl'
+			} )
+			.when( '/register', {
 				templateUrl: 'views/register.html',
-				controller: 'AuthCtrl',
-				resolve: {
-					user: function(Auth){
+				controller : 'AuthCtrl',
+				resolve    : {
+					user: function (Auth) {
 						return Auth.resolveUser();
 					}
 				}
-			})
+			} )
+			.when( '/login', {
+				templateUrl: 'views/login.html',
+				controller : 'AuthCtrl',
+				resolve    : {
+					user: function (Auth) {
+						return Auth.resolveUser();
+					}
+				}
+			} )
 			.otherwise( {
 				redirectTo: '/'
 			} );
 	} )
-	.constant('FIREBASE_URL', 'https:https://blinding-inferno-9424.firebaseio.com/');
+	.constant( 'FIREBASE_URL', 'https:https://blinding-inferno-9424.firebaseio.com/' );
 
 
